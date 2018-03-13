@@ -6,7 +6,7 @@ set nocompatible
 "------------
 call plug#begin('~/.vim/plugged')
 
-"Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 Plug 'jalvesaq/Nvim-R'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
@@ -19,6 +19,8 @@ Plug 'bling/vim-airline'
 " vim-plug gets 403 errors for these without full URLs for some reason
 Plug 'https://github.com/tpope/vim-unimpaired.git'
 Plug 'https://github.com/tpope/vim-obsession.git'
+
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -66,7 +68,8 @@ if has("autocmd")
   filetype plugin on
   filetype indent on
   " Change to the directory the file in your current buffer is in
-  " autocmd BufEnter * silent! lcd %:p:h
+  autocmd BufEnter * silent! lcd %:p:h
+  " When editing a file, always jump to the last known cursor position.
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif " has ("autocmd")
 
@@ -129,7 +132,7 @@ set cinoptions=>2s,{1s
 set display=lastline	" Show incomplete paragraphs even when they don'f fit on screen (avoid @'s)
 
 :nmap <Leader>sv :source ~/.vimrc<CR>
-:nmap <Leader>ev :e ~/.vimrc<CR>
+:nmap <Leader>ev :e ~/dotfiles/.vimrc<CR>
 
 " ignore white space in diff
 set diffopt+=iwhite
