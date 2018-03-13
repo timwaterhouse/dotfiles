@@ -208,3 +208,10 @@ nnoremap H 0
 nnoremap L $
 inoremap jk <esc>
 
+" Use mouse and make it play nice with tmux
+set mouse+=a
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
+
