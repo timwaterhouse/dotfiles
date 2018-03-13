@@ -7,7 +7,7 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 
 "Plug 'scrooloose/nerdtree'
-"Plug 'jalvesaq/Nvim-R'
+Plug 'jalvesaq/Nvim-R'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -140,23 +140,24 @@ set diffopt+=iwhite
 " "let vimrplugin_r_path = "rlwrap /usr/pk/software/bin/R"
 " let r_path = "/lrlhps/apps/R/R_latest"
 " let vimrplugin_r_prefix = "rlwrap"
-" let vimrplugin_r_args = "--no-save"
+ let R_args = "--no-save"
 " let vimrplugin_vimpager = "vertical"
-" let r_indent_align_args = 0
+ let r_indent_align_args = 0
 " let vimrplugin_assign = 0
+let R_assign = 0
 
 "syntax enable
 
 " Lines added by the Vim-R-plugin command :RpluginConfig (2014-Jun-01 23:00):
 " Use Ctrl+Space to do omnicompletion:
-"if has("gui_running")
-"    inoremap <C-Space> <C-x><C-o>
-"else
-"    inoremap <Nul> <C-x><C-o>
-"endif
-"" Press the space bar to send lines (in Normal mode) and selections to R:
-"vmap <Space> <Plug>RDSendSelection
-"nmap <Space> <Plug>RDSendLine
+if has("nvim") || has("gui_running")
+    inoremap <C-Space> <C-x><C-o>
+else
+    inoremap <Nul> <C-x><C-o>
+endif
+" Press the space bar to send lines (in Normal mode) and selections to R:
+vmap <Space> <Plug>RDSendSelection
+nmap <Space> <Plug>RDSendLine
 "
 "imap <C-x><C-x> <Plug>RCompleteArgs
 
