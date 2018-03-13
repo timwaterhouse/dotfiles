@@ -38,6 +38,8 @@ set textwidth=0		" Don't wrap lines by default
 set backup
 set backupdir=~/vimtmp,.
 set directory=~/vimtmp,.
+set undofile
+set undodir=~/vimtmp,.
 set viminfo='20,\"50	" read/write a .viminfo file, don't store more than
 " 50 lines of registers
 set history=200		" keep 50 lines of command line history
@@ -68,7 +70,7 @@ if has("autocmd")
   filetype plugin on
   filetype indent on
   " Change to the directory the file in your current buffer is in
-  autocmd BufEnter * silent! lcd %:p:h
+  "autocmd BufEnter * silent! lcd %:p:h
   " When editing a file, always jump to the last known cursor position.
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif " has ("autocmd")
