@@ -55,33 +55,25 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 
 syntax on
-au BufNewFile,BufRead *.R set filetype=r
-au BufNewFile,BufRead *.ssc set filetype=r
-au BufNewFile,BufRead *.scm set filetype=config
-
 
 set background=light
 colorscheme solarized
 
 highlight SignColumn ctermbg=8
-autocmd ColorScheme * highlight SignColumn ctermbg=8
 
-if has("autocmd")
-  filetype plugin on
-  filetype indent on
+filetype plugin on
+filetype indent on
+
+augroup misc
+  autocmd!
+  autocmd ColorScheme * highlight SignColumn ctermbg=8
   " Change to the directory the file in your current buffer is in
   "autocmd BufEnter * silent! lcd %:p:h
   " When editing a file, always jump to the last known cursor position.
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif " has ("autocmd")
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+augroup END
 
 set autochdir
-
-" Some Debian-specific things
-augroup filetype
-  au BufRead reportbug.*		set ft=mail
-  au BufRead reportbug-*		set ft=mail
-augroup END
 
 " The following are commented out as they cause vim to behave a lot
 " different from regular vi. They are highly recommended though.
@@ -139,13 +131,20 @@ set display=lastline	" Show incomplete paragraphs even when they don'f fit on sc
 " ignore white space in diff
 set diffopt+=iwhite
 
+augroup rgroup
+  autocmd!
+  autocmd BufNewFile,BufRead *.R set filetype=r
+  autocmd BufNewFile,BufRead *.ssc set filetype=r
+  autocmd FileType r :iabbrev <buffer> >> %>%
+augroup end
+
 " For old version of vim-r-plugin
 " "let vimrplugin_screenplugin = 0
 " "let vimrplugin_tmux = 0
 " "let vimrplugin_r_path = "rlwrap /usr/pk/software/bin/R"
 " let r_path = "/lrlhps/apps/R/R_latest"
 " let vimrplugin_r_prefix = "rlwrap"
- let R_args = "--no-save"
+ let R_args = ["--no-save"]
 " let vimrplugin_vimpager = "vertical"
  let r_indent_align_args = 0
 " let vimrplugin_assign = 0
@@ -198,8 +197,11 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 
 :nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-autocmd FileType * unlet! g:airline#extensions#whitespace#checks
-autocmd FileType markdown let g:airline#extensions#whitespace#checks = [ 'indent' ]
+augroup airline_config
+  autocmd!
+  autocmd FileType * unlet! g:airline#extensions#whitespace#checks
+  autocmd FileType markdown let g:airline#extensions#whitespace#checks = [ 'indent' ]
+augroup END
 let g:airline#extensions#tabline#enabled = 1
 
 :nnoremap <F5> :buffers<CR>:buffer<Space>
@@ -219,4 +221,10 @@ if &term =~ '^screen'
     " tmux knows the extended mouse mode
     set ttymouse=xterm2
 endif
+
+" Perl Speaks NONMEM SCM config files
+augroup psn
+  autocmd!
+  autocmd BufNewFile,BufRead *.scm set filetype=config
+augroup END
 
