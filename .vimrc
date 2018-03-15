@@ -59,8 +59,6 @@ syntax on
 set background=light
 colorscheme solarized
 
-highlight SignColumn ctermbg=8
-
 filetype plugin on
 filetype indent on
 
@@ -229,7 +227,7 @@ augroup psn
 augroup END
 
 " Source a local configuration file if available
-if filereadable("$HOME/.vimrc.local")
-  source $HOME/.vimrc.local
+if filereadable(glob("~/.vimrc.local"))
+  source ~/.vimrc.local
 endif
 
