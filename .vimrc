@@ -228,5 +228,8 @@ augroup psn
   autocmd BufNewFile,BufRead *.scm set filetype=config
 augroup END
 
-source $HOME/.vimrc.local
+" Source a local configuration file if available
+if filereadable("$HOME/.vimrc.local")
+  source $HOME/.vimrc.local
+endif
 
