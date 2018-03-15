@@ -228,3 +228,5 @@ augroup psn
   autocmd BufNewFile,BufRead *.scm set filetype=config
 augroup END
 
+source $HOME/.vimrc.local
+
