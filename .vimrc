@@ -226,11 +226,6 @@ augroup psn
   autocmd BufNewFile,BufRead *.scm set filetype=config
 augroup END
 
-" Source a local configuration file if available
-if filereadable(glob("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
-
 nnoremap <leader>f :call <SID>FoldColumnToggle()<cr>
 function! s:FoldColumnToggle()
   if &foldcolumn
@@ -253,4 +248,9 @@ function! s:QuickfixToggle()
     let g:quickfix_is_open = 1
   endif
 endfunction
+
+" Source a local configuration file if available
+if filereadable(glob("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
 
