@@ -6,6 +6,10 @@ set nocompatible
 "------------
 call plug#begin('~/.vim/plugged')
 
+if !empty(glob("~/.local.plugins.vim"))
+  source ~/.local.plugins.vim
+endif
+
 Plug 'scrooloose/nerdtree'
 Plug 'jalvesaq/Nvim-R'
 Plug 'altercation/vim-colors-solarized'
