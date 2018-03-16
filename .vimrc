@@ -254,7 +254,7 @@ function! s:QuickfixToggle()
 endfunction
 
 " Source a local configuration file if available
-if filereadable(glob("~/.vimrc.local"))
-  source ~/.vimrc.local
+if filereadable(glob("~/.vimrc_local"))
+  source ~/.vimrc_local
 endif
 
