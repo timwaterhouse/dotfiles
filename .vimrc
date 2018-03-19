@@ -19,6 +19,7 @@ Plug 'vim-scripts/showmarks'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'bling/vim-airline'
+Plug 'godlygeek/tabular'
 
 " vim-plug gets 403 errors for these without full URLs for some reason
 Plug 'https://github.com/tpope/vim-unimpaired.git'
