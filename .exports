@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# Make vim the default editor.
+export EDITOR='vim';
+
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+export PYTHONIOENCODING='UTF-8';
+
+# Increase Bash history size. Allow infinite entries; the default is 500.
+export HISTSIZE='INFINITE';
+export HISTFILESIZE="${HISTSIZE}";
+export HISTTIMEFORMAT='%F %T '
+# Omit duplicates and commands that begin with a space from history.
+# Erase duplicates already in history.
+export HISTCONTROL='ignoreboth:erasedups';
+# https://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows#comment67052_48116
+export PROMPT_COMMAND='history -a' 
+
+# Prefer US English and use UTF-8.
+export LANG='en_US.UTF-8';
+export LC_ALL='en_US.UTF-8';
+
+# Highlight section titles in manual pages.
+export LESS_TERMCAP_md="${yellow}";
+
+# Don’t clear the screen after quitting a manual page.
+#export MANPAGER='less -X';
+# TODO set manpager to vim
+
+# Not sure why this was added, so I'll comment it out and see if it breaks anything
+#export MANPATH=/usr/local/share/man:$MANPATH
