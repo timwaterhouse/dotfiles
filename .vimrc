@@ -34,23 +34,22 @@ if filereadable("$VIM/.vimrc")
   source $VIM/.vimrc
 endif
 
-set nocompatible	" Use Vim defaults instead of 100% vi compatibility
-set backspace=indent,eol,start	" more powerful backspacing
-
-set autoindent	" always set autoindenting on
-set linebreak		" Don't wrap words by default
-set textwidth=0		" Don't wrap lines by default
+set nocompatible               	" Use Vim defaults instead of 100% vi compatibility
+set backspace=indent,eol,start 	" more powerful backspacing
+set autoindent                 	" always set autoindenting on
+set linebreak                  	" Don't wrap words by default
+set textwidth=0                	" Don't wrap lines by default
 set backup
-set backupdir=~/vimtmp,.
-set directory=~/vimtmp,.
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
 set undofile
-set undodir=~/vimtmp,.
-set viminfo='20,\"50	" read/write a .viminfo file, don't store more than
-" 50 lines of registers
-set history=200		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
+set undodir=~/.vim/undo
+set viminfo='20,\"50           	" read/write a .viminfo file, don't store more than 50 lines of registers
+set history=200                	" keep 50 lines of command line history
+set ruler                      	" show the cursor position all the time
 set nrformats=
-set wildmenu            " visual autocomplete for command menu
+set wildmenu                    " visual autocomplete for command menu
+set noerrorbells                " Disable error bells
 
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
@@ -255,7 +254,8 @@ function! s:QuickfixToggle()
 endfunction
 
 " Source a local configuration file if available
-if filereadable(glob("~/.vimrc_local"))
-  source ~/.vimrc_local
+let $LOCALFILE = expand("~/.vimrc_local")
+if filereadable($LOCALFILE)
+  source $LOCALFILE
 endif
 
