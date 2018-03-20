@@ -123,7 +123,6 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 noremap <silent> <C-l> :<C-u> nohlsearch <CR><C-l>
 
 setlocal linebreak
-setlocal nolist
 setlocal display+=lastline
 " indenting stuff
 set expandtab
@@ -133,6 +132,14 @@ set shiftwidth=2
 set cinoptions=>2s,{1s
 
 set display=lastline	" Show incomplete paragraphs even when they don'f fit on screen (avoid @'s)
+
+" Show trailing whitespaces
+set list
+set listchars=tab:▸\ ,trail:¬,nbsp:.,extends:❯,precedes:❮
+augroup FileTypes
+  autocmd!
+  autocmd filetype html,xml set listchars-=tab:▸\
+augroup END
 
 :nmap <Leader>sv :source ~/.vimrc<CR>
 :nmap <Leader>ev :e ~/dotfiles/.vimrc<CR>
