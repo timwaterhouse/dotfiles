@@ -1,0 +1,35 @@
+[user]
+  # set name and email in ~/.gitconfig_local
+[core]
+  editor = vim
+  excludesfile = ~/.gitignore
+  #autocrlf: in ~/.gitconfig_local,
+  #  set to "true" for Windows
+  #  set to "input" otherwise
+[merge]
+  tool = vimdiff
+[alias]
+  co = checkout
+  br = branch
+  ci = commit
+  st = status
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+  apply-gitignore = !git ls-files -ci --exclude-standard -z | xargs -0r git rm --cached
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = auto
+[gc]
+  auto = 1
+[credential]
+  #helper: in ~/.gitconfig_local,
+  #  set to "osxkeychain" for MacOS
+  #  set to "wincred" for Windows
+  #  set to "store" otherwise
+[include]
+  path = ~/.gitconfig_local
+
