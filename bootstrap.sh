@@ -1,16 +1,25 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "${BASH_SOURCE}")";
+# Get current dir (so this script can be run from anywhere)
+DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 git pull origin master;
 
 function doIt() {
-  rsync --exclude ".git/" \
-    --exclude ".DS_Store" \
-    --exclude "bootstrap.sh" \
-    --exclude "README.md" \
-    --exclude "LICENSE-MIT.txt" \
-    -avh --no-perms . ~;
+  files=(.aliases .bash_profile .bash_prompt .bashrc .exports .functions \
+    .gitconfig .gitignore .inputrc .tmux.conf .vimrc)
+  for f in "${files[@]}"
+  do
+    # Copy for Windows, symlink otherwise
+    if [[ $OSTYPE == "msys" || $OSTYPE == "cygwin" ]] ;then
+      cp -v "$DOTFILES_DIR/$f" ~
+    else
+      ln -sfv "$DOTFILES_DIR/$f" ~
+    fi
+  done
+  mkdir -pv ~/.vim/backups
+  mkdir -pv ~/.vim/swaps
+  mkdir -pv ~/.vim/undo
   source ~/.bash_profile;
 }
 
