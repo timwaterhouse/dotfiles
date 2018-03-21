@@ -239,10 +239,11 @@ inoremap jk <esc>
 
 " Use mouse and make it play nice with tmux
 set mouse+=a
-if &term =~ '^screen'
-    " tmux knows the extended mouse mode
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
     set ttymouse=xterm2
-endif
+end
 
 " Perl Speaks NONMEM SCM config files
 augroup psn
