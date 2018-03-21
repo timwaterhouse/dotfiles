@@ -62,7 +62,9 @@ alias reload="exec ${SHELL} -l"
 alias path='echo -e ${PATH//:/\\n}'
 
 # Give R a graceful exit
-alias R="$(/usr/bin/which R) --no-save"
+if rcmd=$(/usr/bin/which R 2> /dev/null); then
+  alias R="$rcmd --no-save"
+fi
 
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
