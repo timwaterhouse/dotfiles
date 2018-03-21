@@ -2,6 +2,12 @@ let mapleader = ","
 
 set nocompatible
 
+" On Windows, use '.vim' instead of 'vimfiles'; this makes synchronization
+" across (heterogeneous) systems easier.
+if has('win32') || has('win64')
+  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+endif
+
 " vim-plug
 "------------
 " Automatic installation
@@ -41,19 +47,19 @@ if filereadable("$VIM/.vimrc")
   source $VIM/.vimrc
 endif
 
-set nocompatible               	" Use Vim defaults instead of 100% vi compatibility
-set backspace=indent,eol,start 	" more powerful backspacing
-set autoindent                 	" always set autoindenting on
-set linebreak                  	" Don't wrap words by default
-set textwidth=0                	" Don't wrap lines by default
+set nocompatible                " Use Vim defaults instead of 100% vi compatibility
+set backspace=indent,eol,start  " more powerful backspacing
+set autoindent                  " always set autoindenting on
+set linebreak                   " Don't wrap words by default
+set textwidth=0                 " Don't wrap lines by default
 set backup
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 set undofile
 set undodir=~/.vim/undo
-set viminfo='20,\"50           	" read/write a .viminfo file, don't store more than 50 lines of registers
-set history=200                	" keep 50 lines of command line history
-set ruler                      	" show the cursor position all the time
+set viminfo='20,\"50            " read/write a .viminfo file, don't store more than 50 lines of registers
+set history=200                 " keep 50 lines of command line history
+set ruler                       " show the cursor position all the time
 set nrformats=
 set wildmenu                    " visual autocomplete for command menu
 set noerrorbells                " Disable error bells
@@ -86,13 +92,13 @@ set autochdir
 
 " The following are commented out as they cause vim to behave a lot
 " different from regular vi. They are highly recommended though.
-set showcmd		" Show (partial) command in status line.
-set showmatch		" Show matching brackets.
-set ignorecase		" Do case insensitive matching
+set showcmd    " Show (partial) command in status line.
+set showmatch    " Show matching brackets.
+set ignorecase    " Do case insensitive matching
 "set smartcase
-set incsearch		" Incremental search
+set incsearch    " Incremental search
 set hlsearch
-set autowrite		" Automatically save before commands like :next and :make
+set autowrite    " Automatically save before commands like :next and :make
 set lazyredraw
 set cursorline          " highlight current line
 
@@ -131,7 +137,7 @@ set tabstop=2
 set shiftwidth=2
 set cinoptions=>2s,{1s
 
-set display=lastline	" Show incomplete paragraphs even when they don'f fit on screen (avoid @'s)
+set display=lastline  " Show incomplete paragraphs even when they don'f fit on screen (avoid @'s)
 
 " Show trailing whitespaces
 set list
