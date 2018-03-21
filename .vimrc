@@ -67,7 +67,7 @@ vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 
 syntax on
 
-set background=light
+set background=dark
 colorscheme solarized
 
 filetype plugin on
