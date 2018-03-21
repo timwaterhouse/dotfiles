@@ -64,6 +64,7 @@ set ruler                       " show the cursor position all the time
 set nrformats=
 set wildmenu                    " visual autocomplete for command menu
 set noerrorbells                " Disable error bells
+set visualbell                  " Stop the beeps!
 
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
