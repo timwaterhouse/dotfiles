@@ -1,6 +1,7 @@
 let mapleader = ","
 
 set nocompatible
+set encoding=utf-8
 
 " On Windows, use '.vim' instead of 'vimfiles'; this makes synchronization
 " across (heterogeneous) systems easier.
@@ -207,8 +208,6 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " If you want :UltiSnipsEdit to split your window.
 "let g:UltiSnipsEditSplit="vertical"
-
-set encoding=utf-8
 
 " Always show statusline
 set laststatus=2
