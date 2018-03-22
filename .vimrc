@@ -34,6 +34,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'bling/vim-airline'
 Plug 'godlygeek/tabular'
+Plug 'christoomey/vim-tmux-navigator'
 
 " vim-plug gets 403 errors for these without full URLs for some reason
 Plug 'https://github.com/tpope/vim-unimpaired.git'
@@ -244,6 +245,9 @@ if has("mouse_sgr")
 else
     set ttymouse=xterm2
 end
+
+" Disable tmux navigator when zooming the Vim pane
+let g:tmux_navigator_disable_when_zoomed = 1
 
 " NERDTree
 nnoremap <Leader>n :NERDTreeToggle<Enter>
