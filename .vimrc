@@ -245,6 +245,12 @@ else
     set ttymouse=xterm2
 end
 
+" NERDTree
+nnoremap <Leader>n :NERDTreeToggle<Enter>
+nnoremap <silent> <Leader>v :NERDTreeFind<CR>
+let NERDTreeQuitOnOpen = 1   " automatically close NerdTree when you open a file
+let NERDTreeAutoDeleteBuffer = 1  " Automatically delete the buffer of the file you just deleted with NerdTree
+
 " Perl Speaks NONMEM SCM config files
 augroup psn
   autocmd!
