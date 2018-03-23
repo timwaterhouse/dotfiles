@@ -62,7 +62,7 @@ alias reload="exec ${SHELL} -l"
 alias path='echo -e ${PATH//:/\\n}'
 
 # Give R a graceful exit
-if rcmd=$(/usr/bin/which R 2> /dev/null); then
+if rcmd="$(command -v R)"; then
   alias R="$rcmd --no-save"
 fi
 
