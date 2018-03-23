@@ -24,7 +24,6 @@ if !empty(glob("~/.local.plugins.vim"))
   source ~/.local.plugins.vim
 endif
 
-Plug 'scrooloose/nerdtree'
 Plug 'jalvesaq/Nvim-R'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
@@ -252,12 +251,6 @@ end
 
 " Disable tmux navigator when zooming the Vim pane
 let g:tmux_navigator_disable_when_zoomed = 1
-
-" NERDTree
-nnoremap <Leader>n :NERDTreeToggle<Enter>
-nnoremap <silent> <Leader>v :NERDTreeFind<CR>
-let NERDTreeQuitOnOpen = 1   " automatically close NerdTree when you open a file
-let NERDTreeAutoDeleteBuffer = 1  " Automatically delete the buffer of the file you just deleted with NerdTree
 
 " Perl Speaks NONMEM SCM config files
 augroup psn
