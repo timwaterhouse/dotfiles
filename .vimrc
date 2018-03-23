@@ -36,6 +36,7 @@ Plug 'bling/vim-airline'
 Plug 'godlygeek/tabular'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 
 " vim-plug gets 403 errors for these without full URLs for some reason
