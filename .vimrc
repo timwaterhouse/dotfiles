@@ -288,6 +288,20 @@ function! s:QuickfixToggle()
   endif
 endfunction
 
+nnoremap <leader>l :call <SID>LocationToggle()<cr>
+let g:location_is_open = 0
+function! s:LocationToggle()
+  if g:location_is_open
+    lclose
+    let g:location_is_open = 0
+    execute g:location_return_to_window . "wincmd w"
+  else
+    let g:location_return_to_window = winnr()
+    lopen
+    let g:location_is_open = 1
+  endif
+endfunction
+
 " Source a local configuration file if available
 let $LOCALFILE = expand("~/.vimrc_local")
 if filereadable($LOCALFILE)
