@@ -35,7 +35,7 @@ Plug 'honza/vim-snippets'
 Plug 'bling/vim-airline'
 Plug 'godlygeek/tabular'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 
 " vim-plug gets 403 errors for these without full URLs for some reason
 Plug 'https://github.com/tpope/vim-unimpaired.git'
@@ -227,6 +227,7 @@ augroup airline_config
   autocmd FileType markdown let g:airline#extensions#whitespace#checks = [ 'indent' ]
 augroup END
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 
 :nnoremap <F5> :buffers<CR>:buffer<Space>
 
@@ -261,24 +262,6 @@ augroup psn
   autocmd!
   autocmd BufNewFile,BufRead *.scm set filetype=config
 augroup END
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" Syntastic disabled by default, map <leader>s to toggle
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-nnoremap <leader>s :SyntasticCheck<CR>
-
-" Syntastic lintr
-let g:syntastic_enable_r_lintr_checker = 1
-let g:syntastic_r_checkers = ['lintr']
 
 nnoremap <leader>f :call <SID>FoldColumnToggle()<cr>
 function! s:FoldColumnToggle()
