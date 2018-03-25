@@ -130,9 +130,6 @@ cnoremap <C-n> <Down>
 " Easy expansion of the active file directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" mute search highlighting
-noremap <silent> <C-l> :<C-u> nohlsearch <CR><C-l>
-
 setlocal linebreak
 setlocal display+=lastline
 " indenting stuff
