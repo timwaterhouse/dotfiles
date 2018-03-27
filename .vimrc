@@ -201,6 +201,10 @@ let showmarks_include = "abcdefghijklmnopqrstuvwxyz"
 
 set timeoutlen=1000 ttimeoutlen=50
 
+" fzf
+nnoremap <silent> <leader>, :Files<CR>
+nnoremap <silent> <leader>a :Buffers<CR>
+
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 " UltiSnips Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
