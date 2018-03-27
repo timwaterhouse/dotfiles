@@ -1,6 +1,6 @@
 set bell-style none
 set editing-mode vi
-set keyseq-timeout 50
+set keyseq-timeout 500
 
 # Immediately add a trailing slash when autocompleting symlinks to directories
 set mark-symlinked-directories on
@@ -33,10 +33,13 @@ set vi-ins-mode-string \1\e[0m\e[34m\2(i)\1\e[0m\2
 #set vi-cmd-mode-string \1\e[2 q\e[31m\2(c)\1\e[0m\2
 #set vi-ins-mode-string \1\e[6 q\e[34m\2(i)\1\e[0m\2
 
-set keymap vi-command
+$if mode=vi
+  set keymap vi-command
 
+  set keymap vi-insert
+  "jk": vi-movement-mode  # remap escape
+$endif
 # switch to block cursor before executing a command
-#set keymap vi-insert
 #RETURN: "\e\n"
 
 # Be more intelligent when autocompleting by also looking at the text after
