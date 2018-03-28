@@ -93,8 +93,6 @@ augroup misc
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 augroup END
 
-set autochdir
-
 " The following are commented out as they cause vim to behave a lot
 " different from regular vi. They are highly recommended though.
 set showcmd    " Show (partial) command in status line.
