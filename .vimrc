@@ -28,7 +28,7 @@ endif
 Plug 'jalvesaq/Nvim-R'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-vinegar'
+"Plug 'tpope/vim-vinegar'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/showmarks'
 Plug 'SirVer/ultisnips'
