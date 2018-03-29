@@ -28,6 +28,7 @@ endif
 Plug 'jalvesaq/Nvim-R'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-vinegar'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/showmarks'
 Plug 'SirVer/ultisnips'
@@ -38,6 +39,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
+Plug 'easymotion/vim-easymotion'
 
 " vim-plug gets 403 errors for these without full URLs for some reason
 Plug 'https://github.com/tpope/vim-unimpaired.git'
