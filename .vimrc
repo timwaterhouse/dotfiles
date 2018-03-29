@@ -1,5 +1,5 @@
-let mapleader = ","
-let maplocalleader = "\\"
+let mapleader = "\<Space>"
+let maplocalleader = ","
 
 set nocompatible
 set encoding=utf-8
@@ -182,9 +182,9 @@ if has("nvim") || has("gui_running")
 else
     inoremap <Nul> <C-x><C-o>
 endif
-" Press the space bar to send lines (in Normal mode) and selections to R:
-vmap <Space> <Plug>RDSendSelection
-nmap <Space> <Plug>RDSendLine
+" Send lines (in Normal mode) and selections to R:
+vmap <LocalLeader>. <Plug>RDSendSelection
+nmap <LocalLeader>. <Plug>RDSendLine
 "
 "imap <C-x><C-x> <Plug>RCompleteArgs
 
@@ -201,7 +201,7 @@ let showmarks_include = "abcdefghijklmnopqrstuvwxyz"
 set timeoutlen=1000 ttimeoutlen=50
 
 " fzf
-nnoremap <silent> <leader>, :Files<CR>
+nnoremap <silent> <leader><space> :Files<CR>
 nnoremap <silent> <leader>a :Buffers<CR>
 
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
