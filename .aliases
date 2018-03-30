@@ -16,7 +16,6 @@ alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
 alias g="git"
 alias :e="vim"
-alias vim="vim -X"
 
 # Old ls settings for posterity
 #alias ls='ls -G'
