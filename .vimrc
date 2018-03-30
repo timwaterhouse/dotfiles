@@ -38,6 +38,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
+Plug 'lervag/vimtex'
 
 " vim-plug gets 403 errors for these without full URLs for some reason
 Plug 'https://github.com/tpope/vim-unimpaired.git'
@@ -229,6 +230,10 @@ augroup airline_config
 augroup END
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
+
+let g:ale_enabled = 0  " disable ALE until toggled with :ALEToggle
+
+let g:vimtex_view_enabled = 0  " don't start PDF viewer after compiling
 
 :nnoremap <F5> :buffers<CR>:buffer<Space>
 
