@@ -28,17 +28,20 @@ endif
 Plug 'jalvesaq/Nvim-R'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/showmarks'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 Plug 'lervag/vimtex'
+Plug 'edkolev/tmuxline.vim'
 
 " vim-plug gets 403 errors for these without full URLs for some reason
 Plug 'https://github.com/tpope/vim-unimpaired.git'
@@ -256,6 +259,15 @@ end
 
 " Disable tmux navigator when zooming the Vim pane
 let g:tmux_navigator_disable_when_zoomed = 1
+
+" tmuxline options
+let g:tmuxline_preset = {
+      \'a'       : '#S',
+      \'win'     : ['#I', '#W#F'],
+      \'cwin'     : ['#I', '#W#F'],
+      \'y'       : ['%Y-%m-%d', '%H:%M'],
+      \'z'       : '#h',
+      \'options' : {'status-justify' : 'left'}}
 
 " Perl Speaks NONMEM SCM config files
 augroup psn
