@@ -42,6 +42,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 Plug 'lervag/vimtex'
 Plug 'edkolev/tmuxline.vim'
+Plug 'timwaterhouse/vim-nonmem'
 
 " vim-plug gets 403 errors for these without full URLs for some reason
 Plug 'https://github.com/tpope/vim-unimpaired.git'
@@ -268,6 +269,12 @@ let g:tmuxline_preset = {
       \'y'       : ['%Y-%m-%d', '%H:%M'],
       \'z'       : '#h',
       \'options' : {'status-justify' : 'left'}}
+
+" NONMEM
+augroup nonmem
+  autocmd!
+  autocmd BufNewFile,BufRead *.ctl,*.lst set filetype=nonmem
+augroup END
 
 " Perl Speaks NONMEM SCM config files
 augroup psn
