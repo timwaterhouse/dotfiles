@@ -86,7 +86,7 @@ syntax on
 
 set background=dark
 let g:solarized_termtrans=1
-colorscheme solarized
+silent! colorscheme solarized
 
 filetype plugin on
 filetype indent on
