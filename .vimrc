@@ -116,6 +116,12 @@ set cursorline          " highlight current line
 set hidden
 set number
 
+" Change cursor shape in different modes
+" For tmux running in iTerm2 on OS X Edit
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
 map <silent> <up> gk
 imap <silent> <up> <C-o>gk
 map <silent> <down> gj
@@ -306,7 +312,7 @@ function! s:QuickfixToggle()
   endif
 endfunction
 
-nnoremap <leader>l :call <SID>LocationToggle()<cr>
+"nnoremap <leader>l :call <SID>LocationToggle()<cr>
 let g:location_is_open = 0
 function! s:LocationToggle()
   if g:location_is_open
