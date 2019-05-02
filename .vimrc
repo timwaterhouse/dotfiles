@@ -259,11 +259,13 @@ inoremap jk <esc>
 
 " Use mouse and make it play nice with tmux
 set mouse+=a
-if has("mouse_sgr")
+if !has("nvim")
+  if has("mouse_sgr")
     set ttymouse=sgr
-else
+  else
     set ttymouse=xterm2
-end
+  end
+endif
 
 " Disable tmux navigator when zooming the Vim pane
 let g:tmux_navigator_disable_when_zoomed = 1

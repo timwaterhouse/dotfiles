@@ -20,6 +20,12 @@ function doIt() {
   mkdir -pv ~/.vim/backups
   mkdir -pv ~/.vim/swaps
   mkdir -pv ~/.vim/undo
+  mkdir -pv ~/.config/nvim
+  if [[ $OSTYPE == "msys" || $OSTYPE == "cygwin" ]] ;then
+    cp -v "$DOTFILES_DIR/init.vim" ~/.config/nvim
+  else
+    ln -sfv "$DOTFILES_DIR/init.vim" ~/.config/nvim
+  fi
   source ~/.bash_profile;
 }
 
