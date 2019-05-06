@@ -15,7 +15,10 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
 alias g="git"
-alias :e="vim"
+alias :e="nvim"
+alias v="nvim"
+alias vim="nvim"
+alias vimdiff="nvim -d"
 
 # Old ls settings for posterity
 #alias ls='ls -G'

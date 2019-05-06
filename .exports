@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Make vim the default editor.
-export EDITOR='vim';
+# Make nvim the default editor.
+export EDITOR='nvim';
 
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8';
@@ -29,3 +29,19 @@ export LESS_TERMCAP_md="${yellow}";
 
 # Not sure why this was added, so I'll comment it out and see if it breaks anything
 #export MANPATH=/usr/local/share/man:$MANPATH
+
+# Try bat, highlight, coderay, rougify in turn, then fall back to cat
+export FZF_DEFAULT_OPTS="--preview '
+                 (bat --style=numbers --color=always {} ||
+                  highlight -O ansi -l {} ||
+                  coderay {} ||
+                  rougify {} ||
+                  cat {}) 2> /dev/null | head -500'"
+
+if command -v asdfrg >/dev/null 2>&1; then
+  export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+else
+  export FZF_DEFAULT_COMMAND='find .'
+fi
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
