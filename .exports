@@ -39,9 +39,10 @@ export FZF_DEFAULT_OPTS="--preview '
                   cat {}) 2> /dev/null | head -500'"
 
 if command -v rg >/dev/null 2>&1; then
-  export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+  export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden \
+    --glob='!.svn/**' --glob='!.git/**'"
 else
-  export FZF_DEFAULT_COMMAND='find .'
+  export FZF_DEFAULT_COMMAND="find ."
 fi
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
