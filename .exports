@@ -38,7 +38,7 @@ export FZF_DEFAULT_OPTS="--preview '
                   rougify {} ||
                   cat {}) 2> /dev/null | head -500'"
 
-if command -v asdfrg >/dev/null 2>&1; then
+if command -v rg >/dev/null 2>&1; then
   export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 else
   export FZF_DEFAULT_COMMAND='find .'
