@@ -74,6 +74,7 @@ set nrformats=
 set wildmenu                    " visual autocomplete for command menu
 set noerrorbells                " Disable error bells
 set visualbell                  " Stop the beeps!
+set nomodeline
 
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
@@ -130,6 +131,22 @@ map <silent> <home> g<home>
 imap <silent> <home> <C-o>g<home>
 map <silent> <end> g<end>
 imap <silent> <end> <C-o>g<end>
+
+:tnoremap jk <C-\><C-N>
+:tnoremap kj <C-\><C-N>
+" To use `ALT+{h,j,k,l}` to navigate windows from any mode: >
+:tnoremap <A-h> <C-\><C-N><C-w>h
+:tnoremap <A-j> <C-\><C-N><C-w>j
+:tnoremap <A-k> <C-\><C-N><C-w>k
+:tnoremap <A-l> <C-\><C-N><C-w>l
+:inoremap <A-h> <C-\><C-N><C-w>h
+:inoremap <A-j> <C-\><C-N><C-w>j
+:inoremap <A-k> <C-\><C-N><C-w>k
+:inoremap <A-l> <C-\><C-N><C-w>l
+:nnoremap <A-h> <C-w>h
+:nnoremap <A-j> <C-w>j
+:nnoremap <A-k> <C-w>k
+:nnoremap <A-l> <C-w>l
 
 :map <C-Tab> :bn<CR>
 :map <C-S-Tab> :bp<CR>
@@ -214,7 +231,7 @@ set timeoutlen=1000 ttimeoutlen=50
 
 " fzf
 nnoremap <silent> <leader><space> :Files<CR>
-nnoremap <silent> <leader>a :Buffers<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>g :Rg<Cr>
 "   :Rg  - Start fzf with hidden preview window that can be enabled with "?" key
 "   :Rg! - Start fzf in fullscreen and display the preview window above
@@ -250,6 +267,7 @@ augroup airline_config
 augroup END
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#obsession#enabled = 1
 
 let g:ale_enabled = 0  " disable ALE until toggled with :ALEToggle
 
@@ -262,9 +280,8 @@ set number                     " Show current line number
 set relativenumber             " Show relative line numbers
 set cc=80                      " marker for 80th column
 
-nnoremap H 0
-nnoremap L $
 inoremap jk <esc>
+inoremap kj <esc>
 
 " Use mouse and make it play nice with tmux
 set mouse+=a
