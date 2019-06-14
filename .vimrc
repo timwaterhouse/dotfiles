@@ -318,7 +318,7 @@ augroup psn
 augroup END
 
 " align comments for NONMEM parameters
-nnoremap <leader>np mngg/$theta\s*$<CR>V/$est<CR>k:Tabularize /;<CR>:noh<CR>`n
+nnoremap <leader>np mngg/$theta\s*$<CR>V/$est<CR>k:Tabularize /;<CR>:noh<CR>`n:delm n<CR>
 
 nnoremap <leader>f :call <SID>FoldColumnToggle()<cr>
 function! s:FoldColumnToggle()
