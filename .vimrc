@@ -317,6 +317,9 @@ augroup psn
   autocmd BufNewFile,BufRead *.scm set filetype=config
 augroup END
 
+" align comments for NONMEM parameters
+nnoremap <leader>np /$theta\s*$<CR>V/$est<CR>k:Tabularize /;<CR>:noh<CR>
+
 nnoremap <leader>f :call <SID>FoldColumnToggle()<cr>
 function! s:FoldColumnToggle()
   if &foldcolumn
