@@ -20,6 +20,9 @@ alias v="nvim"
 alias vim="nvim"
 alias vimdiff="nvim -d"
 
+# open files in vim, sorted numerically
+vo() { vim $(ls --color=never -v "$@"); }
+
 # Old ls settings for posterity
 #alias ls='ls -G'
 #alias ll='ls -Ghal'
