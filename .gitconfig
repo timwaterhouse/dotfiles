@@ -1,13 +1,19 @@
 [user]
+	name = Tim Waterhouse
+	email = timw@metrumrg.com
   # set name and email in ~/.gitconfig_local
 [core]
-  editor = vim
+  editor = nvim
   excludesfile = ~/.gitignore
   #autocrlf: in ~/.gitconfig_local,
   #  set to "true" for Windows
   #  set to "input" otherwise
 [merge]
   tool = vimdiff
+[mergetool]
+  keepBackup = false
+[mergetool "vimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [alias]
   co = checkout
   br = branch
