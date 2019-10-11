@@ -19,6 +19,8 @@ alias :e="nvim"
 alias v="nvim"
 alias vim="nvim"
 alias vimdiff="nvim -d"
+alias svnd="svn diff"
+alias svndi="svn diff --internal-diff"
 
 # open files in vim, sorted numerically
 vo() { vim $(ls --color=never -v "$@"); }
