@@ -23,7 +23,11 @@ alias svnd="svn diff"
 alias svndi="svn diff --internal-diff"
 
 # open files in vim, sorted numerically
-vo() { vim $(ls --color=never -v "$@"); }
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  vo() { vim $(ls --color=never -v "$@"); }
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  vo() { vim $(ls "$@" | sort -n); }
+fi
 
 # Old ls settings for posterity
 #alias ls='ls -G'
