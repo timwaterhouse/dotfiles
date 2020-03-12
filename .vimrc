@@ -33,8 +33,12 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/showmarks'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+" Disable vim-airline when firenvim starts since vim-airline takes two lines.
+if !exists('g:started_by_firenvim')
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+endif
 Plug 'godlygeek/tabular'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -328,6 +332,32 @@ function! s:FoldColumnToggle()
     setlocal foldcolumn=4
   endif
 endfunction
+
+" firenvim settings
+if exists('g:started_by_firenvim') && g:started_by_firenvim
+    " general options
+    set laststatus=0 nonumber noruler noshowcmd
+
+    augroup firenvim
+        autocmd!
+        autocmd BufEnter *.txt setlocal filetype=markdown.pandoc
+    augroup END
+endif
+let g:firenvim_config = { 
+    \ 'globalSettings': {
+        \ 'alt': 'all',
+    \  },
+    \ 'localSettings': {
+        \ '.*': {
+            \ 'cmdline': 'firenvim',
+            \ 'priority': 0,
+            \ 'selector': 'textarea, div[role="textbox"]',
+            \ 'takeover': 'always',
+        \ },
+    \ }
+\ }
+let fc = g:firenvim_config['localSettings']
+let fc['https://docs.google.com/spreadsheets/'] = { 'takeover': 'never', 'priority': 1 }
 
 nnoremap <leader>q :call <SID>QuickfixToggle()<cr>
 let g:quickfix_is_open = 0
