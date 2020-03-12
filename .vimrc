@@ -47,6 +47,7 @@ Plug 'w0rp/ale'
 Plug 'lervag/vimtex'
 Plug 'edkolev/tmuxline.vim'
 Plug 'timwaterhouse/vim-nonmem'
+Plug 'junegunn/vim-easy-align'
 
 " vim-plug gets 403 errors for these without full URLs for some reason
 Plug 'https://github.com/tpope/vim-unimpaired.git'
@@ -322,7 +323,18 @@ augroup psn
 augroup END
 
 " align comments for NONMEM parameters
-nnoremap <leader>np mngg/$theta\s*$<CR>V/$est<CR>k:Tabularize /;<CR>:noh<CR>`n:delm n<CR>
+"nnoremap <leader>np mngg=Ggg/$theta\s*$<CR>V/$est<CR>k:Tabularize /;<CR>:noh<CR>gg=G`n:delm n<CR>
+nnoremap <leader>np mngg=Ggg/$theta\s*$<CR>V/$est<CR>k:EasyAlign ;<CR>:noh<CR>gg=G`nzz:delm n<CR>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+let g:easy_align_delimiters = {
+\  ';': { 'pattern': ';\+', 'delimiter_align': 'l', 'ignore_groups': ['!Comment']  },
+\ }
 
 nnoremap <leader>f :call <SID>FoldColumnToggle()<cr>
 function! s:FoldColumnToggle()
